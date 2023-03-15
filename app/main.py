@@ -7,7 +7,7 @@ import json
 
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-content_system = """Bạn là một model trích xuất dữ liệu văn bản bất động sản từ thông tin miêu tả thành một data json với schema bên dưới
+content_system = """Bạn là một model trích xuất dữ liệu văn bản bất động sản từ thông tin miêu tả thành một data json cực nhanh và chính xác với schema bên dưới
 'location': Địa chỉ,
 'area': Diện tích,
 'price: Giá cho thuê hoặc bán,
@@ -15,6 +15,8 @@ content_system = """Bạn là một model trích xuất dữ liệu văn bản b
 'name' : Tên người bán,
 'phone' : Số điện thoại người bán
 },
+"transaction_type" : Loại giao dịch (Cần bán hoặc Cho thuê),
+"type_of_real_estate": Loại bất động sản ( Nhà cấp 4, Đất không, Chỉ vườn, Nhà mới, Chung cư, Nhà mặt phố),
 "details": {
     "floors": Số tầng,
     "bedrooms": Số phòng ngủ,
@@ -24,7 +26,13 @@ content_system = """Bạn là một model trích xuất dữ liệu văn bản b
     "toilets": Số phòng toilets,
     "balconies": Ban công (true hoặc false),
     "furniture": Nội thất như thế nào,
-  }
+    "facade" : Mặt tiền như thế nào ( 1 mặt thoáng, 2 mặt thoáng, 3 mặt thoáng, 4 mặt thoáng, lô góc),
+    "front_width" : Kích thước mặt tiền bao nhiêu mét,
+    "end_width" : Kích thước mặt hậu bao nhiêu mét,
+    "floor_no" : Tầng số bao nhiêu ( chỉ áp dụng với chung cư ),
+    "house_orientation" : Hướng cửa ( Đông, Tây, Nam, Bắc ),
+    "year_of_construction" : Năm xây dựng
+        }
 """
 
 

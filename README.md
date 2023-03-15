@@ -40,23 +40,32 @@ Extracts real estate information from a text description and returns it in JSON 
 On success, returns a JSON object with the following schema:
 ``````
 {
-   "location":"string",
-   "area":"string",
-   "price":"string",
-   "contact":{
-      "name":"string",
-      "phone":"string"
+   'location': Địa chỉ,
+   'area': Diện tích,
+   'price: Giá cho thuê hoặc bán,
+   'contact': {
+   'name' : Tên người bán,
+   'phone' : Số điện thoại người bán
    },
-   "details":{
-      "floors":"int",
-      "bedrooms":"int",
-      "bathrooms":"int",
-      "living_rooms":"int",
-      "kitchens":"int",
-      "toilets":"int",
-      "balconies":"bool",
-      "furniture":"string"
-   }
+   "transaction_type" : Loại giao dịch (Cần bán hoặc Cho thuê),
+   "type_of_real_estate": Loại bất động sản ( Nhà cấp 4, Đất không, Chỉ vườn, Nhà mới, Chung cư, Nhà mặt phố),
+   
+   "details": {
+    "floors": Số tầng,
+    "bedrooms": Số phòng ngủ,
+    "bathrooms": Số phòng tắm,
+    "living_rooms": Số phòng khách,
+    "kitchens": Số phòng bếp,
+    "toilets": Số phòng toilets,
+    "balconies": Ban công (true hoặc false),
+    "furniture": Nội thất như thế nào,
+    "facade" : Mặt tiền như thế nào ( 1 mặt thoáng, 2 mặt thoáng, 3 mặt thoáng, 4 mặt thoáng, lô góc),
+    "front_width" : Kích thước mặt tiền bao nhiêu mét,
+    "end_width" : Kích thước mặt hậu bao nhiêu mét,
+    "floor_no" : Tầng số bao nhiêu ( chỉ áp dụng với chung cư ),
+    "house_orientation" : Hướng cửa ( Đông, Tây, Nam, Bắc ),
+    "year_of_construction" : Năm xây dựng
+  }
 }
 ``````
 
